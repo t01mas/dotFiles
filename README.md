@@ -1,4 +1,4 @@
-> ⚠️ **ATENÇÃO:** Este `README.md` foi gerado por IA e ainda aguarda revisão humana. Os comandos, caminhos e dependências podem estar incorretos ou incompletos. Não execute estes passos sem os validar, pelo amor de deus.
+**⚠️ATENÇÃO:** Este `README.md` foi gerado por IA e ainda aguarda revisão humana. Os comandos, caminhos e dependências podem estar incorretos ou incompletos. Não execute estes passos sem os validar, pelo amor de deus.
 
 ---
 
