@@ -1,3 +1,7 @@
+> ⚠️ **ATENÇÃO:** Este `README.md` foi gerado por IA e ainda aguarda revisão humana. Os comandos, caminhos e dependências podem estar incorretos ou incompletos. Não execute estes passos sem os validar, pelo amor de deus.
+
+---
+
 # 💤 LazyVim
 
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
@@ -17,14 +21,21 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
   ```powershell
   winget install --id Microsoft.WindowsTerminal -e --source winget
   ```
+- **Node.js** (necessário para o Mason instalar LSPs)
+  ```powershell
+  winget install --id OpenJS.NodeJS -e --source winget
 
-### Linux
-- **Git** + **build tools** + **ripgrep** + **unzip**
-  ```bash
-  sudo pacman -S git base-devel ripgrep unzip   # Arch
-  sudo apt install git build-essential ripgrep unzip # Ubuntu/Debian
+- **Compilador em C** (MinGW, Zig ou MSVC) (necessário para compilar o Treesitter)
+  ```PowerShell
+  winget install --id zig.zig -e --source winget
   ```
 
+### Linux
+- **Git** + **build tools** + **ripgrep** + **unzip** + **Node.js**
+  ```bash
+  sudo pacman -S git base-devel ripgrep unzip nodejs npm   # Arch
+  sudo apt install git build-essential ripgrep unzip nodejs npm # Ubuntu/Debian
+  ```
 ---
 
 ## 🚀 Instalar o Neovim
@@ -39,7 +50,7 @@ winget install --id Neovim.Neovim -e --source winget
 ### Linux
 ```bash
 sudo pacman -S neovim   # Arch
-sudo apt install neovim  # Ubuntu/Debian (use um PPA mais recente se a versão for antiga)
+sudo apt install neovim  # Ubuntu/Debian
 ```
 
 ---
@@ -48,12 +59,12 @@ sudo apt install neovim  # Ubuntu/Debian (use um PPA mais recente se a versão f
 
 ### Windows
 ```powershell
-git clone https://github.com/LazyVim/starter $env:LOCALAPPD\nvim
+git clone [https://github.com/t01mas/dotFiles.git](https://github.com/t01mas/dotFiles.git) $env:LOCALAPPDATA\nvim
 ```
 
 ### Linux
 ```bash
-git clone https://github.com/LazyVim/starter ~/.config/nvim
+git clone [https://github.com/t01mas/dotFiles.git](https://github.com/t01mas/dotFiles.git) ~/.config/nvim
 ```
 
 > Se já tem config em `~/.config/nvim`, remova ou renomeie-a primeiro.
@@ -177,7 +188,7 @@ installPath = "/usr/local/MATLAB/R2025b",
 
 ### VimTeX (visualizador de PDF)
 `lua/plugins/vimtex.lua:5` usa `zathura` por defeito.
-- **Linux**: instale `zathura` (`sudo pacman -S zathura` | `sudo apt install zathura`).
+- **Linux**: instale `zathura` (`sudo pacman -S zathura zathura-pdf-mupdf` | `sudo apt install zathura`).
 - **Windows**: troque para `sumatrapdf` ou `skim`.
 
 ### Ícones não aparecem
@@ -214,6 +225,3 @@ installPath = "/usr/local/MATLAB/R2025b",
 | `<leader>fb` | Buffers |
 | `<leader>sh` | Splits |
 | `:Lazy` / `:Lazy sync` | Gerir plugins |
-
-
-## README FEITO POR AI (AINDA EM REVISÃO POR HUMANO)
