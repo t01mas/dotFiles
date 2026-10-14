@@ -12,3 +12,38 @@ vim.keymap.set(
   "<C-/>",
   { remap = true, desc = "Traduzir Ctrl+_ para Ctrl+/" }
 )
+
+-- cxr: Abre split do Neovim, executa e apaga o .exe
+vim.keymap.set("n", "<leader>cxr", function()
+  vim.cmd("w")
+  local file = vim.fn.expand("%:t")
+  local exe = vim.fn.expand("%:t:r") .. ".exe"
+  vim.cmd("split | term cmd /c \"gcc " .. file .. " -o " .. exe .. " && .\\" .. exe .. " && del " .. exe .. "\"")
+end, { desc = "C: Split terminal e apaga" })
+
+-- cxk: Compila, executa em background, MANTÉM o .exe e não abre splits
+vim.keymap.set("n", "<leader>cxk", function()
+  vim.cmd("w")
+  local file = vim.fn.expand("%:t")
+  local exe = vim.fn.expand("%:t:r") .. ".exe"
+  vim.fn.system("cmd /c gcc " .. file .. " -o " .. exe .. " && .\\" .. exe)
+end, { desc = "C: Silencioso e mantém .exe" })
+
+-- cxp: Executa em background e mostra o output em popup/notificação (e apaga)
+vim.keymap.set("n", "<leader>cxp", function()
+  vim.cmd("w")
+  local file = vim.fn.expand("%:t")
+  local exe = vim.fn.expand("%:t:r") .. ".exe"
+  local cmd = "cmd /c gcc " .. file .. " -o " .. exe .. " && .\\" .. exe .. " && del " .. exe
+  local output = vim.fn.system(cmd)
+  print(output)
+end, { desc = "C: Notificação/Pop-up e apaga" })
+
+-- cxe: Abre janela externa do CMD, pausa para leitura e apaga
+vim.keymap.set("n", "<leader>cxe", function()
+  vim.cmd("w")
+  local file = vim.fn.expand("%:t")
+  local exe = vim.fn.expand("%:t:r") .. ".exe"
+  local cmd = 'start "" cmd /c "gcc ' .. file .. ' -o ' .. exe .. ' && .\\' .. exe .. ' && pause && del ' .. exe .. '"'
+  vim.fn.system(cmd)
+end, { desc = "C: CMD externo e apaga" })
